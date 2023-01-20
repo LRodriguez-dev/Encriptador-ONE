@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador - ONE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" 
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="./styles/reset.css">    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Bienvenidos a mi encriptador de mensajes</h1>
+    </header>
+
+    <main>
+        <section >
+            <label for="mensaje">Porfavor escribe un mensaje</label>
+            <textarea name="mesnaje" id="" cols="30" rows="10"></textarea>
+            <input type="button" value="encriptar">
+            <input type="button" value="desencriptar">
+            <label for="convertido">Mensaje convertido</label>
+            <textarea name="convertido" id="" cols="30" rows="10"></textarea>
+            <input type="button" value="Copiar">
+        </section>
+    </main>
+
+    <script src="./controller/encriptador.js"></script>
+</body>
+</html>

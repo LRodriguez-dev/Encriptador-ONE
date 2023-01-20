@@ -1,0 +1,18 @@
+
+.titulo
+{
+    text-align: center;
+    font-size: 2em;
+    margin: 1em 0 1em;
+}
+
+textarea
+{
+    display: block;
+
+}
+
+label
+{
+    margin: 2em auto;
+}
