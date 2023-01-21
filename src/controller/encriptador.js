@@ -1,102 +1,79 @@
-var message = "Mensajoooo";
-var letra = "";
-var encripted = "";
-var decrypted = "";
+// Obteniendo Los TextArea
+const message = document.getElementById("message");
+const converted = document.getElementById("converted");
+//obteniendo el boton copiar
+const btnCopy = document.getElementById("copy");
 
-for(var i=0; i<message.length; i++){
+function encrypter() {
+
+    converted.value = "";
     
-    if(
-        "a" == message[i] || 
-        "A" == message[i]
-    ){
-            encripted += "ai"
-    }else
-    if(
-        "e" == message[i] || 
-        "E" == message[i]
-    ){
-            encripted += "enter"
-    }else
-    if(
-        "i" == message[i] || 
-        "i" == message[i]
-    ){
-            encripted += "imes"
-    }else
-    if(
-        "o" == message[i] || 
-        "O" == message[i]
-    ){
-            encripted += "ober"
-    }else
-    if(
-    "u" == message[i] || 
-    "U" == message[i]
-    ){
-        encripted += "ufat"
-    }
-    else
-    {
-        encripted += message[i] 
-    }
-
+    var text = message.value;
+    var encrypter="";
     
+    text = text.toLowerCase();
 
-}
-console.log(encripted);
+    for (let i = 0; i < text.length; i++) {
 
-decrypted = encripted.replaceAll("ai", "a")
-encripted = decrypted
-decrypted =encripted.replaceAll("enter", "e")
-encripted = decrypted
-decrypted =encripted.replaceAll("ober", "o")
-encripted = decrypted
-decrypted =encripted.replaceAll("imes, i")
-encripted = decrypted
-decrypted =encripted.replaceAll("ufat, u")
+        const element = text[i];
 
-console.log(decrypted);
-/*
-if(
-    "e" == mensaje[i] || 
-    "E" == mensaje[i]
-    ){
-        letra += "ai"
+        switch (element) {
+            case "a":
+                encrypter += "ai";
+                break;
+            case "e":
+                encrypter += "enter";
+                break;
+            case "i":
+                encrypter += "imes";
+                break;la
+            case "o":
+                encrypter += "ober";
+                break;
+            case "u":
+                encrypter += "ufat";
+                break;
+            default:
+                encrypter += element
+                break;
+        }
     }
-    if("e" == mensaje[i]){
-        letra += "enter" 
-    }
-    if("i" == mensaje[i]){
-        letra += "imes"
-    }
-    if("o" == mensaje[i] || "O" == mensaje[i]){
-        letra += "ober"
-    }
-    if("U" == mensaje[i]){
-        letra += "ufat"
-    }else{
-        letra += mensaje[i];
-    }
-*/
 
-// facu consejo de .includes and condiciones if
-/*if(["a", "A"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
-}if(["o", "O"].includes(mensaje[i]) ){
-    letra += "ai"
+    converted.value = encrypter;
+
+    message.value = "";
 }
 
-*/
+function dencrypter() {
 
-//console.log(mensaje.replaceAll('e', 'o'));
-//mensaje = mensaje.replaceAll();
+    converted.value = "";
+
+    var decrypted = message.value;
+
+    decrypted = decrypted.replace(/ai/g, "a")
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+
+    converted.value = decrypted;
+
+    message.value = "";
+}
+
+function copyToClipboard(text) {
+    const type = 'text/plain';
+    const blob = new Blob([text], {type});
+    let data = [new ClipboardItem({[type]: blob})];
+  
+    navigator.clipboard.write(data).then(function() {
+      //console.log('Copiado!')
+    }, function() {
+      //console.log('Ups! No se copio');
+    });
+  }
+
+btnCopy.addEventListener('click', function() {
+    copyToClipboard(converted.value);
+});
+
