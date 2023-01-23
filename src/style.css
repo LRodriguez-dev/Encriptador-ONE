@@ -37,7 +37,7 @@ body
 .container section
 {
     padding: 5px 0px 0px 0px;
-    margin: 1em 1em;
+    margin: 1em auto;
     width: 100%;
 }
 
@@ -107,6 +107,10 @@ textarea::-webkit-scrollbar
 	{
 		display: block;
 	}
-    
+
+    .container section textarea
+    {
+        max-height: 150px;
+    }
     
 }
