@@ -1,13 +1,17 @@
 // Obteniendo Los TextArea
-const message = document.getElementById("message");
-const converted = document.getElementById("converted");
-//obteniendo el boton copiar
-const btnCopy = document.getElementById("copy");
+const message = document.getElementById("messagetxa");
+const converted = document.getElementById("convertedtxa");
+
+//obteniendo los botones
+//const btnEncrypter = document.getElementById("encrypterbtn");
+//const btnDencrypter = document.getElementById("dencrypterbtn");
+const btnCopy = document.getElementById("copybtn");
 
 function encrypter() {
 
-    converted.value = "";
     
+    converted.value = "";
+
     var text = message.value;
     var encrypter="";
     
@@ -40,7 +44,6 @@ function encrypter() {
     }
 
     converted.value = encrypter;
-
     message.value = "";
 }
 
@@ -61,6 +64,38 @@ function dencrypter() {
     message.value = "";
 }
 
+//  autosize height textArea queryselectorAll no me funciono
+message.addEventListener("keyup", e =>{
+    let scHeight = e.target.scrollHeight;
+    if(scHeight >= 100){
+        message.style.height = `${scHeight}px`;
+        converted.style.height = `${scHeight}px`;
+    }
+});
+
+
+converted.addEventListener("select", e =>{
+    let scHeight = e.target.scrollHeight;
+    if(scHeight > 100){
+        converted.style.height = `${scHeight}px`;
+    }
+});
+
+btnEncrypter.addEventListener("click", e =>{
+    message.style.height = "100px";
+});
+
+btnDencrypter.addEventListener("click", e =>{
+    message.style.height = "100px";
+});
+
+btnCopy.addEventListener("click", e =>{
+    
+    
+});
+//--------
+
+// CopyClippboard con el boton "copy"
 function copyToClipboard(text) {
     const type = 'text/plain';
     const blob = new Blob([text], {type});
@@ -77,3 +112,5 @@ btnCopy.addEventListener('click', function() {
     copyToClipboard(converted.value);
 });
 
+message
+// ---------

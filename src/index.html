@@ -13,24 +13,47 @@
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" 
         rel="stylesheet">
 
-        <link rel="stylesheet" href="./styles/reset.css">    
+    <link rel="stylesheet" href="./styles/reset.css">    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1 class="titulo">Bienvenidos a mi encriptador de mensajes</h1>
+        
     </header>
 
     <main>
-        <section >
-            <label for="message">Porfavor escribe un mensaje</label>
-            <textarea name="Message" id="message" cols="30" rows="10"></textarea>
-            <input type="button" value="encrypt" onclick="encrypter()">
-            <input type="button" value="desencrypt" onclick="dencrypter()">
-            <label for="converted">Mensaje convertido</label>
-            <textarea disabled name="converted" id="converted" cols="30" rows="10"></textarea>
-            <input type="button" value="Copy" id="copy">
-        </section>
+        <h1 class="titulo">TEXT ENCODER</h1>
+        <form class="container">
+
+            <section class="putText">
+
+                <label for="message">MESSAGE</label>
+
+                <textarea autofocus 
+                    name="Messagetxa" id="messagetxa" 
+                    placeholder="Type something here..." required></textarea>
+
+                <input type="submit" 
+                    name="encrypterbtn" class="encrypterbtn" id="encrypterbtn" 
+                    value="ENCRYPTER" onclick="encrypter()">
+
+                <input type="submit" 
+                    name="dencrypterbtn" class="dencrypterbtn" id="dencrypterbtn" 
+                    value="DENCRYPTER" onclick="dencrypter()">
+
+            </section>
+            <section class="copyText">   
+
+                <label for="converted">CONVERTED</label>
+
+                <textarea disabled name="converted" id="convertedtxa"
+                    placeholder="Text converted here..."></textarea>
+
+                <input type="button" 
+                    name="copybtn" class="copybtn" id="copybtn" value="COPY">
+
+            </section>
+        </form>
     </main>
 
     <script src="./controller/encriptador.js"></script>
