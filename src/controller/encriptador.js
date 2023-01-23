@@ -3,14 +3,16 @@ const message = document.getElementById("messagetxa");
 const converted = document.getElementById("convertedtxa");
 
 //obteniendo los botones
-//const btnEncrypter = document.getElementById("encrypterbtn");
-//const btnDencrypter = document.getElementById("dencrypterbtn");
+const btnEncrypter = document.getElementById("encrypterbtn");
+const btnDencrypter = document.getElementById("dencrypterbtn");
 const btnCopy = document.getElementById("copybtn");
 
-function encrypter() {
-
-    
+function cleanTxa(){
+    message.value = "";
     converted.value = "";
+}
+
+function encrypter() {
 
     var text = message.value;
     var encrypter="";
@@ -42,14 +44,11 @@ function encrypter() {
                 break;
         }
     }
-
+    cleanTxa();
     converted.value = encrypter;
-    message.value = "";
 }
 
 function dencrypter() {
-
-    converted.value = "";
 
     var decrypted = message.value;
 
@@ -59,9 +58,9 @@ function dencrypter() {
         .replace(/ober/g, "o")
         .replace(/ufat/g, "u");
 
-    converted.value = decrypted;
 
-    message.value = "";
+    cleanTxa();
+    converted.value = decrypted;
 }
 
 //  autosize height textArea queryselectorAll no me funciono
@@ -69,10 +68,10 @@ message.addEventListener("keyup", e =>{
     let scHeight = e.target.scrollHeight;
     if(scHeight >= 100){
         message.style.height = `${scHeight}px`;
-        converted.style.height = `${scHeight}px`;
+        
     }
+    converted.style.height = message.style.height;
 });
-
 
 converted.addEventListener("select", e =>{
     let scHeight = e.target.scrollHeight;
@@ -90,7 +89,7 @@ btnDencrypter.addEventListener("click", e =>{
 });
 
 btnCopy.addEventListener("click", e =>{
-    
+        converted.style.height = "100px";
     
 });
 //--------
