@@ -15,7 +15,6 @@ function cleanTxa(){
 }
 
 function encrypter() {
-
     var text = message.value;
     var encrypter="";
     
@@ -46,7 +45,9 @@ function encrypter() {
                 break;
         }
     }
+    console.log(encrypter);
     cleanTxa();
+    
     converted.value = encrypter;
 }
 
@@ -68,7 +69,7 @@ function dencrypter() {
 //  autosize height textArea queryselectorAll no me funciono
 message.addEventListener("keyup", e =>{
     let scHeight = e.target.scrollHeight;
-    console.log(scHeight);
+    btnCopy.style.background = "#AC34E7";
     if(scHeight > 100){
         message.style.height = `${scHeight}px`;
         
@@ -99,6 +100,7 @@ btnCopy.addEventListener("click", e =>{
 btnClean.addEventListener("click", e =>{
     message.style.height = "100px";
     converted.style.height = "100px";
+    btnCopy.style.background = "#AC34E7";
 });
 //--------
 
@@ -117,6 +119,7 @@ function copyToClipboard(text) {
 
 btnCopy.addEventListener('click', function() {
     copyToClipboard(converted.value);
+    btnCopy.style.background = "#4671EA";
 });
 
 message
