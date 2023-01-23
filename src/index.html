@@ -13,7 +13,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" 
         rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles/reset.css">    
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,13 +34,15 @@
                     name="Messagetxa" id="messagetxa" 
                     placeholder="Type something here..." required></textarea>
 
-                <input type="submit" 
+                <div class="buttons">
+                    <input type="submit" 
                     name="encrypterbtn" class="encrypterbtn" id="encrypterbtn" 
                     value="ENCRYPTER" onclick="encrypter()">
 
                 <input type="submit" 
                     name="dencrypterbtn" class="dencrypterbtn" id="dencrypterbtn" 
                     value="DENCRYPTER" onclick="dencrypter()">
+                </div>
 
             </section>
             <section class="copyText">   
@@ -49,13 +52,23 @@
                 <textarea disabled name="converted" id="convertedtxa"
                     placeholder="Text converted here..."></textarea>
 
+                <div class="buttons">
                 <input type="button" 
                     name="copybtn" class="copybtn" id="copybtn" value="COPY">
+
+                <input type="button" 
+                    name="cleanbtn" class="cleanbtn" id="cleanbtn" 
+                    value="CLEAN" onclick="cleanTxa()">
+                </div>
 
             </section>
         </form>
     </main>
 
-    <script src="./controller/encriptador.js"></script>
+    <footer>
+        
+    </footer>
+
+    <script src="./controller/encrypter.js"></script>
 </body>
 </html>

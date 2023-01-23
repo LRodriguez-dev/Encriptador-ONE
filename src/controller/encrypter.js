@@ -6,7 +6,9 @@ const converted = document.getElementById("convertedtxa");
 const btnEncrypter = document.getElementById("encrypterbtn");
 const btnDencrypter = document.getElementById("dencrypterbtn");
 const btnCopy = document.getElementById("copybtn");
+const btnClean = document.getElementById("cleanbtn");
 
+// limpiar textarea
 function cleanTxa(){
     message.value = "";
     converted.value = "";
@@ -66,9 +68,12 @@ function dencrypter() {
 //  autosize height textArea queryselectorAll no me funciono
 message.addEventListener("keyup", e =>{
     let scHeight = e.target.scrollHeight;
-    if(scHeight >= 100){
+    console.log(scHeight);
+    if(scHeight > 100){
         message.style.height = `${scHeight}px`;
         
+    }else{
+        message.style.height = "100px";
     }
     converted.style.height = message.style.height;
 });
@@ -89,8 +94,11 @@ btnDencrypter.addEventListener("click", e =>{
 });
 
 btnCopy.addEventListener("click", e =>{
-        converted.style.height = "100px";
-    
+    converted.style.height = "100px";
+});
+btnClean.addEventListener("click", e =>{
+    message.style.height = "100px";
+    converted.style.height = "100px";
 });
 //--------
 

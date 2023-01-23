@@ -77,6 +77,41 @@ textarea::-webkit-scrollbar
     width: 0px;
 }
 
+.buttons
+{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.encrypterbtn, .dencrypterbtn, .copybtn, .cleanbtn
+{
+    height: auto;
+    width: 45%;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    background: #AC34E7;
+    color: #FFFFFF;
+    border: #4671EA solid 3px;
+    border-width: 2px;
+    margin: 1em auto 0;
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
+}
+
+.encrypterbtn:hover, .dencrypterbtn:hover, .copybtn:hover, .cleanbtn:hover
+{
+    color: #FFFFFF;
+    background: #000000;
+    border-width: 2px;
+    border: #AC34E7 solid 3px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+/*
 .encrypterbtn, .dencrypterbtn, .copybtn
 {
     height: auto;
@@ -91,21 +126,16 @@ textarea::-webkit-scrollbar
     padding: 2px 10px;
     border-radius: 5px;
 }
-
-.encrypterbtn:hover, .dencrypterbtn:hover, .copybtn:hover
-{
-    color: #AC34E7;
-    border-width: 2px;
-    border: #4671EA solid 3px;
-    border-radius: 5px;
-    transition: all 2s;
-}
+*/
 
 
+
+/* MEDIA */
 @media screen and (max-width:925px) {
 	.container
 	{
 		display: block;
+        margin: 1em auto;
 	}
 
     .container section textarea
@@ -116,6 +146,12 @@ textarea::-webkit-scrollbar
     .container section
     {
         margin: 1em auto;
+    }
+
+    .encrypterbtn, .dencrypterbtn, .copybtn, .cleanbtn
+    {
+        width: 45%;
+        height: 75px;
     }
     
 }
