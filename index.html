@@ -13,8 +13,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" 
         rel="stylesheet">
 
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/style.css">
 </head>
 <body>
     <header>
@@ -23,22 +23,22 @@
 
     <main>
         <h1 class="titulo">TEXT ENCODER</h1>
-        <form class="container">
+        <div class="container">
 
             <section class="putText">
 
                 <label for="message">MESSAGE</label>
 
-                <textarea autofocus 
+                <textarea 
                     name="Messagetxa" id="messagetxa" 
-                    placeholder="Type something here..." required></textarea>
+                    placeholder="Type something here..."></textarea>
 
                 <div class="buttons">
-                    <input type="submit" 
+                    <input type="button" 
                     name="encrypterbtn" class="encrypterbtn" id="encrypterbtn" 
                     value="ENCRYPTER" onclick="encrypter()">
 
-                <input type="submit" 
+                <input type="button" 
                     name="dencrypterbtn" class="dencrypterbtn" id="dencrypterbtn" 
                     value="DENCRYPTER" onclick="dencrypter()">
                 </div>
@@ -48,12 +48,13 @@
 
                 <label for="converted">CONVERTED</label>
 
-                <textarea disabled name="converted" id="convertedtxa"
+                <textarea readonly name="converted" id="convertedtxa"
                     placeholder="Text converted here..."></textarea>
 
                 <div class="buttons">
                 <input type="button" 
-                    name="copybtn" class="copybtn" id="copybtn" value="COPY">
+                    name="copybtn" class="copybtn" id="copybtn" 
+                    value="COPY" onclick="copyToClipboard()">
 
                 <input type="button" 
                     name="cleanbtn" class="cleanbtn" id="cleanbtn" 
@@ -61,13 +62,13 @@
                 </div>
 
             </section>
-        </form>
+        </div>
     </main>
 
     <footer>
 
     </footer>
 
-    <script src="./controller/encrypter.js"></script>
+    <script src="./src/controllers/encrypter.js"></script>
 </body>
 </html>

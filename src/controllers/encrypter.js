@@ -1,14 +1,14 @@
-// Obteniendo Los TextArea
+//call textarea - Obteniendo Los TextArea
 const message = document.getElementById("messagetxa");
 const converted = document.getElementById("convertedtxa");
 
-//obteniendo los botones
+//call buttons - obteniendo los botones
 const btnEncrypter = document.getElementById("encrypterbtn");
 const btnDencrypter = document.getElementById("dencrypterbtn");
 const btnCopy = document.getElementById("copybtn");
 const btnClean = document.getElementById("cleanbtn");
 
-// limpiar textarea
+//clean textarea - limpiar textarea
 function cleanTxa(){
     message.value = "";
     converted.value = "";
@@ -45,10 +45,9 @@ function encrypter() {
                 break;
         }
     }
-    console.log(encrypter);
     cleanTxa();
-    
     converted.value = encrypter;
+    //message = "";
 }
 
 function dencrypter() {
@@ -66,7 +65,14 @@ function dencrypter() {
     converted.value = decrypted;
 }
 
-//  autosize height textArea queryselectorAll no me funciono
+// CopyClippboard - copiar al portapeles
+function copyToClipboard() {
+    converted.select();
+    navigator.clipboard.writeText(converted.value);
+    message.value = converted.value;
+}
+
+//  autosize height textArea - ajustando textarea con el texto
 message.addEventListener("keyup", e =>{
     let scHeight = e.target.scrollHeight;
     btnCopy.style.background = "#AC34E7";
@@ -83,6 +89,7 @@ converted.addEventListener("select", e =>{
     let scHeight = e.target.scrollHeight;
     if(scHeight > 100){
         converted.style.height = `${scHeight}px`;
+        message.style.height = `${scHeight}px`;
     }
 });
 
@@ -102,25 +109,24 @@ btnClean.addEventListener("click", e =>{
     converted.style.height = "100px";
     btnCopy.style.background = "#AC34E7";
 });
+
 //--------
 
-// CopyClippboard con el boton "copy"
-function copyToClipboard(text) {
-    const type = 'text/plain';
-    const blob = new Blob([text], {type});
-    let data = [new ClipboardItem({[type]: blob})];
+// // CopyClippboard con el boton "copy"
+// function copyToClipboard(text) {
+//     const type = 'text/plain';
+//     const blob = new Blob([text], {type});
+//     let data = [new ClipboardItem({[type]: blob})];
   
-    navigator.clipboard.write(data).then(function() {
-      //console.log('Copiado!')
-    }, function() {
-      //console.log('Ups! No se copio');
-    });
-  }
+//     navigator.clipboard.write(data).then(function() {
+//       //console.log('Copiado!')
+//     }, function() {
+//       //console.log('Ups! No se copio');
+//     });
+//   }
 
-btnCopy.addEventListener('click', function() {
-    copyToClipboard(converted.value);
-    btnCopy.style.background = "#4671EA";
-});
-
-message
-// ---------
+// btnCopy.addEventListener('click', function() {
+//     copyToClipboard(converted.value);
+//     btnCopy.style.background = "#4671EA";
+// });
+// // ---------
