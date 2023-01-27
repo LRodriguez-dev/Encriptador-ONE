@@ -1,74 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador - ONE</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador - ONE</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" 
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./src/styles/reset.css">
-    <link rel="stylesheet" href="./src/styles/style.css">
+  <link rel="stylesheet" href="./src/styles/reset.css">
+  <link rel="stylesheet" href="./src/styles/style.css">
 </head>
+
 <body>
-    <header>
-        
-    </header>
+  <header>
 
-    <main>
-        <h1 class="titulo">TEXT ENCODER</h1>
-        <div class="container">
+  </header>
 
-            <section class="putText">
+  <main>
+    <h1 class="titulo">TEXT ENCODER</h1>
+    
+    <div class="container">
+      <section class="putText">
+        <label for="message">MESSAGE</label>
 
-                <label for="message">MESSAGE</label>
+        <textarea name="Messagetxa" id="messagetxa" 
+          placeholder="Type something here..."></textarea>
 
-                <textarea 
-                    name="Messagetxa" id="messagetxa" 
-                    placeholder="Type something here..."></textarea>
+        <div class="buttons">
+          <input type="button" name="encrypterbtn" class="encrypterbtn" 
+            id="encrypterbtn" value="ENCRYPTER" onclick="encrypter()">
 
-                <div class="buttons">
-                    <input type="button" 
-                    name="encrypterbtn" class="encrypterbtn" id="encrypterbtn" 
-                    value="ENCRYPTER" onclick="encrypter()">
-
-                <input type="button" 
-                    name="dencrypterbtn" class="dencrypterbtn" id="dencrypterbtn" 
-                    value="DENCRYPTER" onclick="dencrypter()">
-                </div>
-
-            </section>
-            <section class="copyText">   
-
-                <label for="converted">CONVERTED</label>
-
-                <textarea readonly name="converted" id="convertedtxa"
-                    placeholder="Text converted here..."></textarea>
-
-                <div class="buttons">
-                <input type="button" 
-                    name="copybtn" class="copybtn" id="copybtn" 
-                    value="COPY" onclick="copyToClipboard()">
-
-                <input type="button" 
-                    name="cleanbtn" class="cleanbtn" id="cleanbtn" 
-                    value="CLEAN" onclick="cleanTxa()">
-                </div>
-
-            </section>
+          <input type="button" name="dencrypterbtn" class="dencrypterbtn" 
+            id="dencrypterbtn" value="DENCRYPTER" onclick="dencrypter()">
         </div>
-    </main>
+      </section>
 
-    <footer>
+      <section class="copyText">
+        <label for="converted">CONVERTED</label>
 
-    </footer>
+        <textarea readonly name="converted" id="convertedtxa" 
+          placeholder="Text converted here..."></textarea>
 
-    <script src="./src/controllers/encrypter.js"></script>
+        <div class="buttons">
+          <input type="button" name="copybtn" class="copybtn" 
+            id="copybtn" value="COPY" onclick="copyToClipboard()">
+
+          <input type="button" name="cleanbtn" class="cleanbtn" 
+            id="cleanbtn" value="CLEAN" onclick="cleanTxa()">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <script src="./src/controllers/encrypter.js"></script>
 </body>
+
 </html>

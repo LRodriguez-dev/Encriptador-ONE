@@ -75,7 +75,7 @@ function copyToClipboard() {
 //  autosize height textArea - ajustando textarea con el texto
 message.addEventListener("keyup", e =>{
     let scHeight = e.target.scrollHeight;
-    btnCopy.style.background = "#AC34E7";
+    //btnCopy.style.background = "#AC34E7";
     if(scHeight > 100){
         message.style.height = `${scHeight}px`;
         
