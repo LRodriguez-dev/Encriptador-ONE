@@ -8,61 +8,27 @@ const btnDencrypter = document.getElementById("dencrypterbtn");
 const btnCopy = document.getElementById("copybtn");
 const btnClean = document.getElementById("cleanbtn");
 
-//clean textarea - limpiar textarea
-function cleanTxa(){
-    message.value = "";
-    converted.value = "";
+// diccionary - diccionario
+const encrypt = {
+    a:"ai", e:"enter", i:"imes", o:"ober", u:"ufat"             
+};
+const dencrypt = {
+    ai:"a", enter:"e", imes:"i", ober:"o", ufat:"u"
 }
 
-function encrypter() {
-    var text = message.value;
-    var encrypter="";
-    
-    text = text.toLowerCase();
-
-    for (let i = 0; i < text.length; i++) {
-
-        const element = text[i];
-
-        switch (element) {
-            case "a":
-                encrypter += "ai";
-                break;
-            case "e":
-                encrypter += "enter";
-                break;
-            case "i":
-                encrypter += "imes";
-                break;la
-            case "o":
-                encrypter += "ober";
-                break;
-            case "u":
-                encrypter += "ufat";
-                break;
-            default:
-                encrypter += element
-                break;
-        }
-    }
-    cleanTxa();
-    converted.value = encrypter;
-    //message = "";
+function encrypter(){
+    converted.value = message.value.toLowerCase()
+        .replace(/a|e|i|o|u/g, l => encrypt[l]);
 }
 
 function dencrypter() {
+    converted.value = message.value.toLowerCase()
+        .replace((/ai|enter|imes|ober|ufat/g),l => dencrypt[l]);
+}
 
-    var decrypted = message.value;
-
-    decrypted = decrypted.replace(/ai/g, "a")
-        .replace(/enter/g, "e")
-        .replace(/imes/g, "i")
-        .replace(/ober/g, "o")
-        .replace(/ufat/g, "u");
-
-
-    cleanTxa();
-    converted.value = decrypted;
+//clean textarea - limpiar textarea
+function cleanTxa(){
+    message.value = "", converted.value = "";
 }
 
 // CopyClippboard - copiar al portapeles
@@ -109,6 +75,57 @@ btnClean.addEventListener("click", e =>{
     converted.style.height = "100px";
     btnCopy.style.background = "#AC34E7";
 });
+
+// function encrypter() {
+//     var text = message.value;
+//     var encrypter="";
+    
+//     text = text.toLowerCase();
+
+//     for (let i = 0; i < text.length; i++) {
+
+//         const element = text[i];
+
+//         switch (element) {
+//             case "a":
+//                 encrypter += "ai";
+//                 break;
+//             case "e":
+//                 encrypter += "enter";
+//                 break;
+//             case "i":
+//                 encrypter += "imes";
+//                 break;la
+//             case "o":
+//                 encrypter += "ober";
+//                 break;
+//             case "u":
+//                 encrypter += "ufat";
+//                 break;
+//             default:
+//                 encrypter += element
+//                 break;
+//         }
+//     }
+//     cleanTxa();
+//     converted.value = encrypter;
+//     //message = "";
+// }
+
+// function dencrypter() {
+
+//     var decrypted = message.value;
+
+//     decrypted = decrypted.replace(/ai/g, "a")
+//         .replace(/enter/g, "e")
+//         .replace(/imes/g, "i")
+//         .replace(/ober/g, "o")
+//         .replace(/ufat/g, "u");
+
+
+//     cleanTxa();
+//     converted.value = decrypted;
+// }
 
 //--------
 
